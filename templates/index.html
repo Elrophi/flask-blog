@@ -2,4 +2,12 @@
 
 {% block content %}
     <h1>{%block title %} Welcome to MyBlog {% endblock %}</h1>
+    <hr>
+    {% for post in posts %}
+        <a href="{{ url_for('post', post_id=post['id']) }}" class="text-decoration-none">
+            <h2>{{ post['title'] }}</h2>
+        </a>
+        <span class="badge bg-primary">{{ post['created'] }}</span>
+        <hr>
+    {% endfor %}
 {% endblock %}
